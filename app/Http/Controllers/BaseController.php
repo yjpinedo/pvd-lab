@@ -37,11 +37,14 @@ class BaseController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param array $data
      * @return \Illuminate\Http\Response
      */
-    protected function index()
+    protected function index(array $data = [])
     {
-        return view('app.' . $this->crud);
+        $data['crud'] = $this->crud;
+        $data['entities'] = $this->ajax ? [] : $this->table->get()->sortBy('name');
+        return view('app.' . $this->crud)->with('data', $data);
     }
 
     /**
