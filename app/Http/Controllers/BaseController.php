@@ -44,6 +44,8 @@ class BaseController extends Controller
     {
         $data['crud'] = $this->crud;
         $data['entities'] = $this->ajax ? [] : $this->table->get()->sortBy('name');
+        $data['table'] = $this->table->getFieldsTable();
+        $data['form'] = $this->entity->getFieldsForm();
         return view('app.' . $this->crud)->with('data', $data);
     }
 
