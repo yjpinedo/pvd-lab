@@ -13879,7 +13879,8 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(43);
+__webpack_require__(43);
+module.exports = __webpack_require__(44);
 
 
 /***/ }),
@@ -47410,6 +47411,55 @@ if (false) {
 
 /***/ }),
 /* 43 */
+/***/ (function(module, exports) {
+
+var url = window.location.pathname,
+    form = $('#form'),
+    formButton = $('#formButton'),
+    routes = {
+    store: {
+        url: url,
+        method: 'POST'
+    }
+};
+
+function ajaxRequest(url, method, data, callback) {
+    $.ajax({
+        url: url,
+        data: data,
+        dataType: 'json',
+        method: method,
+        processData: false,
+        contentType: false,
+        success: function success(results) {
+            callback(results);
+        },
+        error: function error(results) {
+            console.log(results);
+            alert('error');
+        },
+        fail: function fail(results) {
+            alert('fail');
+        },
+        complete: function complete() {}
+    });
+}
+
+function createRow(results) {
+    alert('success');
+    console.log(results);
+}
+
+formButton.on("click", function () {
+    var action = formButton.attr('data-action');
+    var data = new FormData(form[0]);
+    if (action === 'store') {
+        ajaxRequest(routes['store'].url, routes['store'].method, data, createRow);
+    }
+});
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

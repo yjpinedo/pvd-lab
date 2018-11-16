@@ -53,6 +53,10 @@ class User extends Authenticatable implements MustVerifyEmail
             'name' => 'email',
             'type' => 'text',
         ],
+        [
+            'name' => 'password',
+            'type' => 'text',
+        ],
     ];
 
     /**

@@ -144,6 +144,7 @@ return [
     'attributes' => [
         'email' => 'Correo Electrónico',
         'name' => 'Nombre',
+        'password' => 'Contraseña',
     ],
 
 ];

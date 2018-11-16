@@ -25,7 +25,7 @@ class UserController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        return parent::storeBase($request);
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends BaseController
      */
     public function show(User $user)
     {
-        //
+
     }
 
     /**
